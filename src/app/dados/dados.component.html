@@ -1,0 +1,62 @@
+<div class="unicorn-dark-theme">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>ATENDIMENTO</span>
+      <mat-icon [matTooltip]="logout" (click)="onLogout()"> directions_run</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img [src]="usuario.link" style="width: 2em; height: 2em; transform: rotate(270deg); margin-right: 1em">
+  <a class="navbar-brand" href="" style="color: teal; font-size: 1em;">{{usuario.nome}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<div class="alinhamentoItens">
+  <div class="unicorn-dark-theme">
+      <mat-form-field>
+          <input matInput type="text" placeholder="Nome" name="nome" id="nome" [(ngModel)]="nome">
+      </mat-form-field>
+  </div>
+
+  <div>
+      <mat-form-field class="unicorn-dark-theme">
+          <mat-label>Setor</mat-label>
+          <mat-select color="primary" [(ngModel)]="cadastro.destino" >
+            <mat-option  *ngFor="let setor of setores" [value]="setor">
+              {{setor}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+
+  <div >
+  <mat-form-field class="unicorn-dark-theme">
+          <mat-label>Documento</mat-label>
+          <mat-select [(ngModel)]="cadastro.documento" class="example-select">
+            <mat-option *ngFor="let docs of documentos" [value]="docs">
+              {{docs}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+
+  <div class="unicorn-dark-theme">
+      <mat-form-field >
+          <input matInput  type="text" placeholder="Número" name="numero" id="numero" [(ngModel)]="cadastro.numero">
+      </mat-form-field>
+  </div>
+
+  <div class="alinhamentoButton unicorn-dark-theme">
+      <button type="submit" class="enviarCadastro" mat-fab color="accent" (click)="onSubmit()">salvar</button>
+  </div>
+</div>
+
+
+
+
+
