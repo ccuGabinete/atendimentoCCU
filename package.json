@@ -92,6 +92,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
     "bootstrap": "4.1.1",
     "hammerjs": "^2.0.8",
+    "jspdf": "^1.5.3",
     "moment-timezone": "^0.5.26",
     "ngx-bootstrap": "^5.2.0"
   }

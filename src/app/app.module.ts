@@ -1,3 +1,5 @@
+import { PdfService } from './services/pdf/pdf.service';
+import { Destino } from './models/destino/destino';
 
 import 'reflect-metadata';
 import '../polyfills';
@@ -40,6 +42,7 @@ import { AvisosalvarComponent } from './avisosalvar/avisosalvar.component';
 import { AvisocamposComponent } from './avisocampos/avisocampos.component';
 import { LogadoService } from './services/logado/logado.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TitleCasePipe } from '@angular/common';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -62,12 +65,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
     NgbModule,
     MatToolbarModule,
+    BrowserAnimationsModule,
     MatTooltipModule,
     MatSnackBarModule,
     TranslateModule.forRoot({
@@ -79,16 +82,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    Destino,
     Usuario,
     Cadastro,
     Aviso,
+    PdfService,
     LoginService,
     SucessoService,
     AvisocamposService,
     AvisosalvarService,
     Avisosalvarmodel,
     Avisocamposmodel,
-    LogadoService
+    LogadoService,
+    TitleCasePipe
   ],
   bootstrap: [AppComponent],
   exports: [

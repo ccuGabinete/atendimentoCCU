@@ -26,6 +26,15 @@ export class SalvarcadastroService {
     );
   }
 
+  buscarDocumento (numero: string): Observable<any> {
+    return this.http.post<any>(apiUrl + 'buscarDoc', {numero: numero}, httpOptions)
+    .pipe(
+      tap(itens => console.log('saved data')),
+      catchError(this.handleError('', []))
+    );
+  }
+
+
     private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       return of(result as T);
