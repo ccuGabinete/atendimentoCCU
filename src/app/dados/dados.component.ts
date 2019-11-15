@@ -30,6 +30,7 @@ export class DadosComponent implements OnInit, OnDestroy {
   comprovante: string;
   setores: IGrupo[] = [];
   assuntos: IAssunto[] = [];
+  disabled = false;
 
   constructor(
     public cadastro: Cadastro,
@@ -82,6 +83,8 @@ export class DadosComponent implements OnInit, OnDestroy {
 
 
   onSubmit() {
+    this.disabled = true; 
+
     if (
       !this.nome
       || !this.cadastro.destino
@@ -89,6 +92,7 @@ export class DadosComponent implements OnInit, OnDestroy {
       || !this.cadastro.numero
       || !this.cadastro.assunto
     ) {
+      this.disabled = false;
       this.serviceCampos.mudarAviso(false);
       this.openSnackBarCampos();
     } else {
@@ -98,6 +102,7 @@ export class DadosComponent implements OnInit, OnDestroy {
           this.serviceSalvar.mudarAviso(true);
           this.openSnackBarSalvar();
           this.reset();
+          this.disabled = false;
         } else {
           this.openSnackBarSalvar();
         }
@@ -123,9 +128,7 @@ export class DadosComponent implements OnInit, OnDestroy {
 
   reset() {
     this.nome = null;
-    this.cadastro.destino = 'Setor';
-    this.cadastro.documento = 'Documento';
-    this.cadastro.numero = null;
+    this.cadastro = new Cadastro();
   }
 
   gerarData() {

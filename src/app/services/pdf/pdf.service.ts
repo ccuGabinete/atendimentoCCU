@@ -20,52 +20,47 @@ export class PdfService {
     private tt: TitleCasePipe
   ) { }
 
-  gerarData(data: Date) {
-    const dateMoment = moment(data);
-    return dateMoment.format('DD/MM/YYYY hh:mm:ss A');
-  }
 
   downloadPDF(cadastro: Cadastro) {
-    go(cadastro);
     const atendido = this.tt.transform(cadastro.atendido);
-    const data = this.gerarData(cadastro.data);
+    // const data = this.gerarData(cadastro.data);
 
     const coord = {
 
       text01: {
         texto: atendido,
-        x: 27,
-        y: 85
+        x: 28,
+        y: 89
       },
 
       text02: {
-        texto: data,
-        x: 27,
-        y: 95
+        texto: cadastro.data.toString(),
+        x: 28,
+        y: 99
       },
 
       text03: {
         texto: cadastro.destino,
-        x: 27,
-        y: 105
+        x: 28,
+        y: 109
       },
 
       text04: {
-        texto: cadastro.assunto,
-        x: 27,
-        y: 115
+        texto: 'cadastro.assunto',
+        x: 28,
+        y: 119
       },
 
       text05: {
         texto: cadastro.numero,
-        x: 27,
-        y: 125
+        x: 28,
+        y: 129
       },
 
       text06: {
         texto: cadastro.agente,
-        x: 27,
-        y: 135
+        x: 28,
+        y: 139
       },
 
       ImageHeader: {

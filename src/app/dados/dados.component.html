@@ -33,7 +33,7 @@
 <div class="alinhamentoItens">
   <div class="unicorn-dark-theme">
     <mat-form-field>
-      <input matInput type="text" placeholder="Nome" name="nome" id="nome" [(ngModel)]="nome">
+      <input matInput type="text" placeholder="Nome" name="nome" id="nome" [(ngModel)]="nome" style="color: white">
     </mat-form-field>
   </div>
 
@@ -72,11 +72,11 @@
 
   <div class="unicorn-dark-theme">
     <mat-form-field>
-      <input matInput type="text" placeholder="Número" name="numero" id="numero" [(ngModel)]="cadastro.numero" (change)=onChangeNumero()>
+      <input matInput type="text" placeholder="Número" name="numero" id="numero" [(ngModel)]="cadastro.numero" (change)=onChangeNumero() style="color: white">
     </mat-form-field>
   </div>
 
   <div class="alinhamentoButton unicorn-dark-theme">
-    <button type="submit" class="enviarCadastro" mat-fab color="accent" (click)="onSubmit()">salvar</button>
+    <button type="submit" class="enviarCadastro" mat-fab color="accent" (click)="onSubmit()" [disabled]=disabled>salvar</button>
   </div>
 </div>
